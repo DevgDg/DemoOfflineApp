@@ -1,0 +1,17 @@
+<!-- https://docs.nativescript.org/angular/core-concepts/angular-navigation.html#page-router-outlet -->
+
+<ActionBar title="SQL App">
+    <ActionItem text="Add" ios.position="right" (tap)="insert()"></ActionItem>
+    <ActionItem text="Refresh" ios.position="left" (tap)="fetch()"></ActionItem>
+</ActionBar>
+<StackLayout *ngIf="names">
+    <ListView [items]="names">
+        <ng-template let-name="item" let-i="index">
+            <StackLayout orientation="horizontal" class="list-group-item">
+                    <GridLayout class="list-group-item" rows="auto *" columns="*">
+                        <Label text="  {{ name.id }} {{ name.firstname }}{{ name.lastname }}" (tap)="deleteItem(name.id)"></Label>
+                    </GridLayout>
+                </StackLayout>
+        </ng-template>
+    </ListView>
+</StackLayout>
